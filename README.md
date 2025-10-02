@@ -75,11 +75,11 @@ o	[Medaka](https://github.com/nanoporetech/medaka) can be used to generate a con
 o	Bacterial chromosomes are reoriented using [dnaapler]( https://github.com/gbouras13/dnaapler), to start canonically with the dnaA sequence. Other replicons like plasmids and bacteriophages are also reoriented, using repA and terL, respectively, as starting point.
 o	Genome completeness and contamination of long-read assembled bacterial chromosomes are assessed with [CheckM](https://github.com/Ecogenomics/CheckM ) using taxon-specific markers.
 4.	Taxonomic Analysis:
-o	Accurate taxonomic placement is performed with GTDB-Tk using a curated reference database.
+o	Accurate taxonomic placement is performed with [GTDB-Tk](https://github.com/Ecogenomics/GTDBTk) using a curated reference [database](https://gtdb.ecogenomic.org/).
 5.	Annotation:
-o	Contigs are annotated using Prokka and Bakta for functional prediction.
-o	Further functional annotation is provided with EggNOG.
-o	Secondary metabolites are inferred with antiSMASH.
+o	Contigs are annotated using [Prokka](https://github.com/tseemann/prokka) and [Bakta](https://github.com/oschwengers/bakta) for functional prediction.
+o	Further functional annotation is provided with [EggNOG](https://github.com/eggnogdb).
+o	Secondary metabolites are inferred with [antiSMASH](https://github.com/antismash/antismash).
 6.	Antimicrobial Resistance (AMR):
 o	Contigs are screened for antimicrobial resistance and virulence genes using ABRicate.
 7.	Plasmids:
