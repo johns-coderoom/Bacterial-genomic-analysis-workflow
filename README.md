@@ -34,3 +34,4 @@ Contigs are screened for viral sequences with VirSorter2, followed by CheckV for
 Reporting:
 
 Results are parsed and aggregated to generate a report using MultiQC.
+https://github.com/iLivius/BacFluxL#:~:text=The%20presence%20of%20plasmids%20is%20investigated%20with%20Platon%20and%20confirmed%20with%20a%20BLAST%20search.
