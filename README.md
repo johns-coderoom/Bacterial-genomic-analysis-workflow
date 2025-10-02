@@ -63,27 +63,27 @@ The analysis of bacterial Whole Genome Sequencing (WGS) data necessitates the in
 BacFluxL allows researchers to concentrate on the biological implications of their data, minimizing the need for technical data analysis.
 Description.
 Here's a breakdown of the BacFluxL workflow:
-1.	Preprocessing of Long Reads:
+1.	**Preprocessing of Long Reads**:
 o	ONT sequences are trimmed and quality filtered using [Filtlong](https://github.com/rrwick/Filtlong).
-2.	Assembly of Long Reads:
+2.	**Assembly of Long Reads**:
 o	Filtered ONT reads are assembled using [Flye](https://github.com/fenderglass/Flye ). For more details, see the next step.
-3.	Decontamination and Error Correction:
+3.	**Decontamination and Error Correction**:
 o	Filtered reads are mapped back to contigs using [minimap2](https://github.com/lh3/minimap2 ) and [samtools](https://github.com/samtools/samtools ).
 o	Local alignments of contigs are performed against the [NCBI nt](https://ftp.ncbi.nlm.nih.gov/blast/db/ ) database using [BLAST+](https://blast.ncbi.nlm.nih.gov/doc/blast-help/).
 o	Contaminant contigs are checked with [BlobTools](https://github.com/DRL/blobtools) . Unless otherwise specified (see configuration section for more details), the output of this step will be parsed automatically to discard contaminants based on the relative taxonomic composition of the contigs.
 o	[Medaka](https://github.com/nanoporetech/medaka) can be used to generate a consensus sequence from the assembled contigs and the original long reads. This consensus sequence should have a higher accuracy than the original assembled contigs, but this is not always the case, especially if ONT reads were base-called with the latest versions of the super accurate model of [Dorado](https://github.com/nanoporetech/dorado). For a deeper insight, please refer to Ryan Wick's bioinformatics [blog](https://rrwick.github.io/2023/12/18/ont-only-accuracy-update.html ). By leaving the medaka_model parameter blank, the error correction step won't be performed. By providing a fast model as parameter, BacfluxL will set Flye to assemble long reads using the --nano-raw parameter. If either an accurate or super accurate model is provided, Flye will use the --nano-hq parameter, instead. Same will happen if the medaka_model is left blank, assuming that data are high quality.
 o	Bacterial chromosomes are reoriented using [dnaapler]( https://github.com/gbouras13/dnaapler), to start canonically with the dnaA sequence. Other replicons like plasmids and bacteriophages are also reoriented, using repA and terL, respectively, as starting point.
 o	Genome completeness and contamination of long-read assembled bacterial chromosomes are assessed with [CheckM](https://github.com/Ecogenomics/CheckM ) using taxon-specific markers.
-4.	Taxonomic Analysis:
+4.**Taxonomic Analysis**:
 o	Accurate taxonomic placement is performed with [GTDB-Tk](https://github.com/Ecogenomics/GTDBTk) using a curated reference [database](https://gtdb.ecogenomic.org/).
-5.	Annotation:
+5.	**Annotation**:
 o	Contigs are annotated using [Prokka](https://github.com/tseemann/prokka) and [Bakta](https://github.com/oschwengers/bakta) for functional prediction.
 o	Further functional annotation is provided with [EggNOG](https://github.com/eggnogdb).
 o	Secondary metabolites are inferred with [antiSMASH](https://github.com/antismash/antismash).
-6.	Antimicrobial Resistance (AMR):
+6.	**Antimicrobial Resistance (AMR)**:
 o	Contigs are screened for antimicrobial resistance and virulence genes using [ABRicate](https://github.com/tseemann/abricate).
-7.	Plasmids:
-o	The presence of plasmids is investigated with Platon and confirmed with a BLAST search.
+7.	**Plasmids**:
+o	The presence of plasmids is investigated with [Platon](https://github.com/PlatONnetwork ) and confirmed with a BLAST search.
 8.	Prophages:
 o	Contigs are screened for viral sequences with VirSorter2, followed by CheckV for refinement.
 9.	Reporting:
