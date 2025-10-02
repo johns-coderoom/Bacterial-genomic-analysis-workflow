@@ -81,7 +81,7 @@ o	Contigs are annotated using [Prokka](https://github.com/tseemann/prokka) and [
 o	Further functional annotation is provided with [EggNOG](https://github.com/eggnogdb).
 o	Secondary metabolites are inferred with [antiSMASH](https://github.com/antismash/antismash).
 6.	Antimicrobial Resistance (AMR):
-o	Contigs are screened for antimicrobial resistance and virulence genes using ABRicate.
+o	Contigs are screened for antimicrobial resistance and virulence genes using [ABRicate](https://github.com/tseemann/abricate).
 7.	Plasmids:
 o	The presence of plasmids is investigated with Platon and confirmed with a BLAST search.
 8.	Prophages:
