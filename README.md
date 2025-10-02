@@ -1,1 +1,1 @@
-o	ONT sequences are trimmed and quality filtered using Filtlong.
+o	ONT sequences are trimmed and quality filtered Filtlong.
