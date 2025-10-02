@@ -1,6 +1,14 @@
 Here's a breakdown of the BacFluxL workflow:
 
+
+Here's a breakdown of the BacFluxL workflow:
+
 Preprocessing of Long Reads:
+
+ONT sequences are trimmed and quality filtered using  https://github.com/rrwick/Filtlong.
+Assembly of Long Reads:
+
+Filtered ONT reads are assembled using Flye. For more details, see the next step.Preprocessing of Long Reads:
 
 ONT sequences are trimmed and quality filtered using Filtlong.
 Assembly of Long Reads:
